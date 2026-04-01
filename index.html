@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的个人主页</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -11,22 +12,75 @@
             box-sizing: border-box;
         }
 
+        /* 淡绿色背景 */
         body {
             font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f8f9fa;
+            background: linear-gradient(135deg, #e8f5e9 0%, #f0f7f1 100%);
+            background-attachment: fixed;
             padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            min-height: 100vh;
         }
 
-        /* 主容器：使用flex布局实现左右布局 */
+        /* 装饰性花朵背景 */
+        .background-flowers {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .flower {
+            position: absolute;
+            opacity: 0.4;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .flower-1 { top: 10%; left: 15%; width: 80px; height: 80px; animation-delay: 0s; }
+        .flower-2 { top: 25%; right: 10%; width: 60px; height: 60px; animation-delay: 2s; }
+        .flower-3 { bottom: 15%; left: 20%; width: 70px; height: 70px; animation-delay: 4s; }
+        .flower-4 { bottom: 25%; right: 15%; width: 90px; height: 90px; animation-delay: 6s; }
+        .flower-5 { top: 40%; left: 30%; width: 50px; height: 50px; animation-delay: 8s; }
+        .flower-6 { bottom: 40%; right: 30%; width: 65px; height: 65px; animation-delay: 10s; }
+
+        /* 花朵样式 */
+        .flower::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #e91e63 0%, #c2185b 70%);
+            border-radius: 50%;
+            transform: rotate(45deg);
+        }
+
+        .flower::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #e91e63 0%, #c2185b 70%);
+            border-radius: 50%;
+            transform: rotate(-45deg);
+        }
+
+        /* 主容器 */
         .container {
             display: flex;
             flex-direction: column;
             gap: 25px;
-            margin-top: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         @media (min-width: 768px) {
@@ -37,71 +91,122 @@
 
         /* 左侧：照片区域 */
         .profile-section {
-            flex: 0 0 300px;
+            flex: 0 0 350px;
             display: flex;
             flex-direction: column;
             align-items: center;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .profile-section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        .profile-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="none" stroke="%234a90e2" stroke-width="0.5" d="M50,5 L50,95 M5,50 L95,50"/></svg>');
+            opacity: 0.1;
+            pointer-events: none;
         }
 
         .profile-img {
-            width: 280px; /* 照片尺寸增大 */
-            height: 280px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
-            border: 5px solid #4a90e2;
+            border: 6px solid #4a90e2;
             object-fit: cover;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            margin-bottom: 25px;
             transition: all 0.3s ease;
+            background: linear-gradient(135deg, #e8f5e9 0%, #f0f7f1 100%);
         }
 
         .profile-img:hover {
             transform: scale(1.03);
             border-color: #2c6eaa;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-name {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            text-align: center;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .profile-title {
+            color: #4a90e2;
+            font-size: 1.4rem;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
         }
 
         /* 右侧：文字内容区域 */
         .content-section {
             flex: 1;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            padding: 35px;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .content-section:hover {
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        .content-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="none" stroke="%234a90e2" stroke-width="0.5" d="M50,5 L50,95 M5,50 L95,50"/></svg>');
+            opacity: 0.05;
+            pointer-events: none;
         }
 
         h1 {
             color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 2.2rem;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
             text-align: left;
+            position: relative;
+            padding-bottom: 15px;
         }
 
-        .subtitle {
-            color: #4a90e2;
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            font-weight: 500;
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, #4a90e2, #2c6eaa);
+            border-radius: 2px;
         }
 
         p {
-            margin-bottom: 18px;
-            font-size: 1.1rem;
-            text-align: left;
+            margin-bottom: 20px;
+            font-size: 1.15rem;
+            line-height: 1.7;
             color: #555;
+            text-align: left;
+        }
+
+        .highlight {
+            color: #4a90e2;
+            font-weight: 600;
         }
 
         .contact-info {
@@ -112,8 +217,22 @@
 
         .contact-info h3 {
             color: #2c3e50;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-size: 1.4rem;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .contact-info h3::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 20px;
+            background: #4a90e2;
+            border-radius: 2px;
         }
 
         .contact-links {
@@ -123,48 +242,73 @@
         }
 
         .contact-link {
-            display: inline-block;
-            padding: 8px 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
             background: #4a90e2;
             color: white;
             text-decoration: none;
             border-radius: 30px;
             font-weight: 500;
             transition: all 0.3s ease;
-            text-align: center;
+            font-size: 1.05rem;
+            box-shadow: 0 3px 10px rgba(74, 144, 226, 0.3);
         }
 
         .contact-link:hover {
             background: #2c6eaa;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
         }
 
         /* 响应式调整 */
         @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
             .profile-section {
                 flex: 0 0 100%;
                 max-width: 100%;
                 margin-bottom: 20px;
             }
             
-            .content-section {
-                flex: 1;
+            .profile-img {
+                width: 240px;
+                height: 240px;
             }
             
-            .profile-img {
-                width: 220px;
-                height: 220px;
+            h1 {
+                font-size: 2rem;
             }
+        }
+
+        /* 花朵动画 */
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-20px) rotate(5deg); opacity: 0.6; }
+            100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
         }
     </style>
 </head>
 <body>
+    <!-- 装饰性花朵 -->
+    <div class="background-flowers">
+        <div class="flower flower-1"></div>
+        <div class="flower flower-2"></div>
+        <div class="flower flower-3"></div>
+        <div class="flower flower-4"></div>
+        <div class="flower flower-5"></div>
+        <div class="flower flower-6"></div>
+    </div>
+
     <div class="container">
         <!-- 左侧：个人照片 -->
         <div class="profile-section">
             <img src="profile.jpg" alt="John Doe - 软件工程师" class="profile-img">
-            <h2>John Doe</h2>
-            <p class="subtitle">软件工程师 | 人工智能专家</p>
+            <h2 class="profile-name">John Doe</h2>
+            <p class="profile-title">软件工程师 | 人工智能专家</p>
         </div>
         
         <!-- 右侧：个人简介 -->
@@ -172,16 +316,16 @@
             <h1>Hi, I'm John Doe</h1>
             <p>我是一名经验丰富的软件工程师，专注于人工智能和机器学习领域。拥有5年行业经验，曾在多家科技公司担任核心开发角色。</p>
             
-            <p>我擅长构建高性能、可扩展的系统，特别在深度学习和自然语言处理方面有深入研究。我的工作理念是：技术应该让世界变得更美好。</p>
+            <p>我擅长构建高性能、可扩展的系统，特别在深度学习和自然语言处理方面有深入研究。我的工作理念是：<span class="highlight">技术应该让世界变得更美好</span>。</p>
             
-            <p>在业余时间，我喜欢阅读科技书籍、参加技术社区活动，以及探索新的编程语言和框架。</p>
+            <p>在业余时间，我喜欢阅读科技书籍、参加技术社区活动，以及探索新的编程语言和框架。我坚信<span class="highlight">持续学习是技术人的生命线</span>。</p>
             
             <div class="contact-info">
                 <h3>联系方式</h3>
                 <div class="contact-links">
-                    <a href="mailto:john.doe@example.com" class="contact-link">邮箱</a>
-                    <a href="https://github.com/johndoe" class="contact-link">GitHub</a>
-                    <a href="https://linkedin.com/in/johndoe" class="contact-link">LinkedIn</a>
+                    <a href="mailto:john.doe@example.com" class="contact-link"><i class="fas fa-envelope"></i> 邮箱</a>
+                    <a href="https://github.com/johndoe" class="contact-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://linkedin.com/in/johndoe" class="contact-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 </div>
             </div>
         </div>
