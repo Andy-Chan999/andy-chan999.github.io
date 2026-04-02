@@ -587,6 +587,44 @@
             font-size: 1.1rem;
         }
 
+        /* 新增板块样式 */
+        .position-item, .scholarship-item, .internship-item, .competition-item, .innovation-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 3px solid #4a90e2;
+            padding-bottom: 15px;
+        }
+
+        .position-item:last-child, .scholarship-item:last-child, .internship-item:last-child, .competition-item:last-child, .innovation-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-left: none;
+        }
+
+        .position-title, .scholarship-title, .internship-title, .competition-title, .innovation-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .position-organization, .scholarship-organization, .internship-company, .competition-organizer, .innovation-sponsor {
+            color: #4a90e2;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .position-time, .scholarship-time, .internship-time, .competition-time, .innovation-time {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .position-description, .scholarship-description, .internship-description, .competition-description, .innovation-description {
+            color: #555;
+            line-height: 1.6;
+        }
+
         /* 响应式调整 */
         @media (max-width: 992px) {
             .profile-section {
@@ -676,7 +714,7 @@
                     <a href="https://x.com/yhl198925589" class="contact-link"><i class="fab fa-twitter"></i> Twitter</a>
                     <a href="https://www.instagram.com/andynju1999/" class="contact-link"><i class="fab fa-instagram"></i> Instagram</a>
                     <a href="https://discord.com/channels/@me" class="contact-link"><i class="fab fa-discord"></i> Discord</a>
-                    <a href="https://www.xiaohongshu.com/user/profile/63764f6a000000001f01d0d5?xsec_token=YBhuqyOJJ9oRU_SUG-dfiqJwqerrf0ziiVv2sF0mUNUxc=&xsec_source=app_share&xhsshare=WeixinSession&appuid=63764f6a000000001f01d0d5&apptime=1775097154&share_id=ed82c8c933154fdb9bc165b2565ad181&exSource=&wechatWid=1ed6aebe9ca64b05b51af3a0cbe7f3b3&wechatOrigin=menu" class="contact-link rednote-link"><i class="fas fa-sticky-note"></i> RedNote </a>
+                    <a href="https://www.xiaohongshu.com/user/profile/63764f6a000000001f01d0d5?xsec_token=YBhuqyOJJ9oRU_SUG-dfiqJwqerrf0ziiVv2sF0mUNUxc=&xsec_source=app_share&xsec_source=app_share&xhsshare=WeixinSession&appuid=63764f6a000000001f01d0d5&apptime=1775097154&share_id=ed82c8c933154fdb9bc165b2565ad181&exSource=&wechatWid=1ed6aebe9ca64b05b51af3a0cbe7f3b3&wechatOrigin=menu" class="contact-link rednote-link"><i class="fas fa-sticky-note"></i> RedNote </a>
                     <a href="https://github.com/Andy-Chan999" class="contact-link"><i class="fab fa-github"></i> Github</a>
                     <a href="https://scholar.google.com/citations?user=uImCHfUAAAAJ&hl=zh-CN&oi=sra" class="contact-link"><i class="fab fa-google-scholar"></i> Google Scholar</a>
                     <a href="www.linkedin.com/in/岸荻-陳-943aa2290" class="contact-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
@@ -734,6 +772,167 @@
                 <div class="education-time">2016 - 2020</div>
                 <div class="education-description">
                     Joint international program with coursework in advanced mathematics, programming, and data science.
+                </div>
+            </div>
+        </div>
+
+        <!-- 行政职位板块 -->
+        <div class="section-card">
+            <h2 class="section-title">Administrative Positions</h2>
+            <div class="position-item">
+                <div class="position-title">Student Union President</div>
+                <div class="position-organization">Dalian University of Technology</div>
+                <div class="position-time">2018 - 2019</div>
+                <div class="position-description">
+                    Led a team of 50+ members, organized campus-wide events including academic forums, cultural festivals, and sports competitions. Managed annual budget of ¥50,000 and coordinated with university administration for resource allocation.
+                </div>
+            </div>
+            <div class="position-item">
+                <div class="position-title">Graduate Student Representative</div>
+                <div class="position-organization">Nanjing University AI Department</div>
+                <div class="position-time">2020 - 2022</div>
+                <div class="position-description">
+                    Served as liaison between graduate students and faculty, organized weekly research seminars, coordinated with industry partners for internship opportunities, and advocated for student welfare improvements.
+                </div>
+            </div>
+            <div class="position-item">
+                <div class="position-title">Research Group Coordinator</div>
+                <div class="position-organization">Shanghai Qizhi Institute</div>
+                <div class="position-time">2024 - Present</div>
+                <div class="position-description">
+                    Coordinate research activities among 15+ PhD students and postdocs, organize weekly lab meetings, manage shared computational resources, and facilitate collaboration with industry partners on AI projects.
+                </div>
+            </div>
+        </div>
+
+        <!-- 奖学金板块 -->
+        <div class="section-card">
+            <h2 class="section-title">Scholarships</h2>
+            <div class="scholarship-item">
+                <div class="scholarship-title">National Scholarship for Outstanding Students</div>
+                <div class="scholarship-organization">Ministry of Education, China</div>
+                <div class="scholarship-time">2019, 2021</div>
+                <div class="scholarship-description">
+                    Awarded to top 0.2% of undergraduate students nationwide based on academic excellence and comprehensive development. Amount: ¥8,000 per year.
+                </div>
+            </div>
+            <div class="scholarship-item">
+                <div class="scholarship-title">President's PhD Fellowship</div>
+                <div class="scholarship-organization">Tongji University</div>
+                <div class="scholarship-time">2024 - 2026</div>
+                <div class="scholarship-description">
+                    Full tuition coverage plus monthly stipend of ¥6,000 for outstanding doctoral candidates with exceptional research potential and academic achievements.
+                </div>
+            </div>
+            <div class="scholarship-item">
+                <div class="scholarship-title">International Research Exchange Grant</div>
+                <div class="scholarship-organization">China Scholarship Council</div>
+                <div class="scholarship-time">2023</div>
+                <div class="scholarship-description">
+                    Funding for 6-month research visit to University of Toronto, Canada, to collaborate on multimodal learning projects with Prof. Alex Lamb's research group.
+                </div>
+            </div>
+            <div class="scholarship-item">
+                <div class="scholarship-title">Academic Excellence Scholarship</div>
+                <div class="scholarship-organization">Nanjing University</div>
+                <div class="scholarship-time">2020 - 2022</div>
+                <div class="scholarship-description">
+                    Awarded annually to top 5% of graduate students based on GPA and research performance. Amount: ¥12,000 per year.
+                </div>
+            </div>
+        </div>
+
+        <!-- 实习经历板块 -->
+        <div class="section-card">
+            <h2 class="section-title">Internships</h2>
+            <div class="internship-item">
+                <div class="internship-title">AI Research Intern</div>
+                <div class="internship-company">Alibaba DAMO Academy</div>
+                <div class="internship-time">Summer 2023</div>
+                <div class="internship-description">
+                    Worked on large language model optimization for e-commerce applications. Developed techniques to reduce inference latency by 30% while maintaining accuracy. Collaborated with engineering teams to deploy models in production environments.
+                </div>
+            </div>
+            <div class="internship-item">
+                <div class="internship-title">Machine Learning Engineer Intern</div>
+                <div class="internship-company">Tencent AI Lab</div>
+                <div class="internship-time">Summer 2022</div>
+                <div class="internship-description">
+                    Contributed to computer vision projects for content moderation systems. Implemented and optimized object detection algorithms using PyTorch. Improved model accuracy by 15% through data augmentation and transfer learning techniques.
+                </div>
+            </div>
+            <div class="internship-item">
+                <div class="internship-title">Data Science Intern</div>
+                <div class="internship-company">Huawei Technologies</div>
+                <div class="internship-time">Summer 2021</div>
+                <div class="internship-description">
+                    Analyzed large-scale network traffic data to identify security threats and optimize routing algorithms. Built predictive models using Python and Spark to forecast network congestion patterns with 92% accuracy.
+                </div>
+            </div>
+        </div>
+
+        <!-- 竞赛板块 -->
+        <div class="section-card">
+            <h2 class="section-title">Competitions</h2>
+            <div class="competition-item">
+                <div class="competition-title">Third Prize, Chinese Mathematical Olympiad Contest</div>
+                <div class="competition-organizer">Chinese Mathematical Society</div>
+                <div class="competition-time">2015</div>
+                <div class="competition-description">
+                    National-level mathematics competition for high school students, ranking among top 100 participants nationwide.
+                </div>
+            </div>
+            <div class="competition-item">
+                <div class="competition-title">First Place, National AI Innovation Challenge</div>
+                <div class="competition-organizer">China Association for Artificial Intelligence</div>
+                <div class="competition-time">2021</div>
+                <div class="competition-description">
+                    Led a team of 4 to develop an AI-powered medical diagnosis system. Our solution achieved 95% accuracy in detecting early-stage lung cancer from CT scans, outperforming 150+ competing teams.
+                </div>
+            </div>
+            <div class="competition-item">
+                <div class="competition-title">Silver Medal, International Collegiate Programming Contest (ICPC)</div>
+                <div class="competition-organizer">ACM</div>
+                <div class="competition-time">2019</div>
+                <div class="competition-description">
+                    Regional competition with 200+ teams. Solved 8 algorithmic problems within 5 hours, ranking in top 5% of participating teams.
+                </div>
+            </div>
+            <div class="competition-item">
+                <div class="competition-title">Winner, Kaggle Competition: "Image Classification Challenge"</div>
+                <div class="competition-organizer">Kaggle</div>
+                <div class="competition-time">2022</div>
+                <div class="competition-description">
+                    Developed a hybrid CNN-Transformer architecture that achieved 98.7% accuracy on fine-grained image classification task, ranking 1st out of 1,200+ teams worldwide.
+                </div>
+            </div>
+        </div>
+
+        <!-- 创新项目板块 -->
+        <div class="section-card">
+            <h2 class="section-title">Innovation Programs</h2>
+            <div class="innovation-item">
+                <div class="innovation-title">Smart Campus Assistant</div>
+                <div class="innovation-sponsor">University Innovation Fund</div>
+                <div class="innovation-time">2020 - 2021</div>
+                <div class="innovation-description">
+                    Led development of an AI-powered campus navigation and information system serving 20,000+ students. Integrated NLP for natural language queries and computer vision for indoor navigation. Won university's "Best Innovation Project" award.
+                </div>
+            </div>
+            <div class="innovation-item">
+                <div class="innovation-title">AI for Sustainable Agriculture</div>
+                <div class="innovation-sponsor">National Natural Science Foundation of China</div>
+                <div class="innovation-time">2022 - 2023</div>
+                <div class="innovation-description">
+                    Developed a machine learning system to optimize water usage and predict crop yields for small farmers. Deployed in 3 rural provinces, helping 500+ farmers increase crop yields by 25% while reducing water consumption by 40%.
+                </div>
+            </div>
+            <div class="innovation-item">
+                <div class="innovation-title">Multimodal Learning Framework for Education</div>
+                <div class="innovation-sponsor">Shanghai Educational Development Foundation</div>
+                <div class="innovation-time">2023 - Present</div>
+                <div class="innovation-description">
+                    Creating an adaptive learning platform that combines text, images, and video to personalize educational content for students with different learning styles. Currently in pilot phase with 10 schools in Shanghai.
                 </div>
             </div>
         </div>
